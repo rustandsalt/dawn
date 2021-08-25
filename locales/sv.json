@@ -44,17 +44,18 @@
       "item_added": "Artikeln har lagts till i varukorgen"
     },
     "share": {
-      "copy_to_clipboard": "Kopiera URL till urklipp",
+      "copy_to_clipboard": "Kopiera länk",
       "share": "Dela",
-      "share_url": "Dela URL",
-      "success_message": "Kopierat till urklipp!"
+      "share_url": "Länk",
+      "success_message": "Länken kopierades till urklipp",
+      "close": "Stäng dela"
     }
   },
   "date_formats": {
     "month_year": "%B %Y"
   },
   "newsletter": {
-    "label": "Din e-postadress",
+    "label": "E-post",
     "success": "Tack för att du prenumererar",
     "button_label": "Prenumerera"
   },
@@ -71,7 +72,9 @@
     },
     "next_slide": "Bild till höger",
     "previous_slide": "Bild till vänster",
-    "loading": "Laddar ..."
+    "loading": "Laddar ...",
+    "skip_to_product_info": "Gå vidare till produktinformation",
+    "of": "av"
   },
   "blogs": {
     "article": {
@@ -131,7 +134,14 @@
         "pick_up_unavailable_at_html": "Det går för närvarande inte att få hämtning på <span class=\"color-foreground\">{{ location_name }}</span>",
         "unavailable": "Det gick inte att ladda hämtningstillgänglighet",
         "refresh": "Uppdatera"
-      }
+      },
+      "media": {
+        "open_featured_media": "Öppna utvald media i gallerivyn",
+        "open_media": "Öppna media {{ index }} i gallerivyn",
+        "play_model": "Spela 3D-visaren",
+        "play_video": "Spela video"
+      },
+      "view_full_details": "Visa alla uppgifter"
     },
     "modal": {
       "label": "Mediagalleri"
@@ -196,7 +206,11 @@
         "total": "Totalt",
         "quantity": "Kvantitet"
       },
-      "update": "Uppdatera"
+      "update": "Uppdatera",
+      "login": {
+        "title": "Har du ett konto?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Logga in</a> för att gå till kassan snabbare."
+      }
     },
     "footer": {
       "payment": "Betalningsmetoder",
@@ -216,10 +230,35 @@
     },
     "collection_template": {
       "title": "Produktserie",
-      "sort_by_label": "Sortera efter",
+      "sort_by_label": "Sortera efter:",
       "sort_button": "Sortera",
-      "product_count": "{{ count }} produkter",
-      "empty": "Denna produktserie är tom"
+      "product_count": {
+        "one": "{{ product_count }} av {{ count }} produkt",
+        "other": "{{ product_count }} av {{ count }} produkter"
+      },
+      "empty": "Inga produkter hittades",
+      "apply": "Tillämpa",
+      "clear": "Rensa",
+      "clear_all": "Rensa alla",
+      "from": "Från",
+      "filter_and_sort": "Filtrera och sortera",
+      "filter_by_label": "Filter:",
+      "filter_button": "Filter",
+      "filters_selected": {
+        "one": "{{ count }} har valts",
+        "other": "{{ count }} har valts"
+      },
+      "max_price": "Det högsta priset är {{ price }}",
+      "reset": "Återställ",
+      "to": "Till",
+      "use_fewer_filters_html": "Använd färre filter eller <a class=\"{{ class }}\" href=\"{{ link }}\">rensa alla</a>",
+      "product_count_simple": {
+        "one": "{{ count }} produkt",
+        "other": "{{ count }} produkter"
+      }
+    },
+    "video": {
+      "load_video": "Ladda video: {{ description }}"
     }
   },
   "localization": {

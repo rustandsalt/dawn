@@ -289,7 +289,7 @@ class MenuDrawer extends HTMLElement {
     });
     summaryElement.setAttribute('aria-expanded', true);
     trapFocus(this.mainDetailsToggle, summaryElement);
-    document.body.classList.add('overflow-hidden-mobile');
+    document.body.classList.add(`overflow-hidden-${this.dataset.breakpoint}`);
   }
 
   closeMenuDrawer(event, elementToFocus = false) {
@@ -300,7 +300,7 @@ class MenuDrawer extends HTMLElement {
         details.classList.remove('menu-opening');
       });
       this.mainDetailsToggle.querySelector('summary').setAttribute('aria-expanded', false);
-      document.body.classList.remove('overflow-hidden-mobile');
+      document.body.classList.remove(`overflow-hidden-${this.dataset.breakpoint}`);
       removeTrapFocus(elementToFocus);
       this.closeAnimation(this.mainDetailsToggle);
     }
@@ -365,7 +365,7 @@ class HeaderDrawer extends MenuDrawer {
 
     summaryElement.setAttribute('aria-expanded', true);
     trapFocus(this.mainDetailsToggle, summaryElement);
-    document.body.classList.add('overflow-hidden-mobile');
+    document.body.classList.add(`overflow-hidden-${this.dataset.breakpoint}`);
   }
 }
 
@@ -434,3 +434,204 @@ class DeferredMedia extends HTMLElement {
 }
 
 customElements.define('deferred-media', DeferredMedia);
+
+class SliderComponent extends HTMLElement {
+  constructor() {
+    super();
+    this.slider = this.querySelector('ul');
+    this.sliderItems = this.querySelectorAll('li');
+    this.pageCount = this.querySelector('.slider-counter--current');
+    this.pageTotal = this.querySelector('.slider-counter--total');
+    this.prevButton = this.querySelector('button[name="previous"]');
+    this.nextButton = this.querySelector('button[name="next"]');
+
+    if (!this.slider || !this.nextButton) return;
+
+    const resizeObserver = new ResizeObserver(entries => this.initPages());
+    resizeObserver.observe(this.slider);
+
+    this.slider.addEventListener('scroll', this.update.bind(this));
+    this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
+    this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
+  }
+
+  initPages() {
+    const sliderItemsToShow = Array.from(this.sliderItems).filter(element => element.clientWidth > 0);
+    this.sliderLastItem = sliderItemsToShow[sliderItemsToShow.length - 1];
+    if (sliderItemsToShow.length === 0) return;
+    this.slidesPerPage = Math.floor(this.slider.clientWidth / sliderItemsToShow[0].clientWidth);
+    this.totalPages = sliderItemsToShow.length - this.slidesPerPage + 1;
+    this.update();
+  }
+
+  update() {
+    if (!this.pageCount || !this.pageTotal) return;
+    this.currentPage = Math.round(this.slider.scrollLeft / this.sliderLastItem.clientWidth) + 1;
+
+    if (this.currentPage === 1) {
+      this.prevButton.setAttribute('disabled', true);
+    } else {
+      this.prevButton.removeAttribute('disabled');
+    }
+
+    if (this.currentPage === this.totalPages) {
+      this.nextButton.setAttribute('disabled', true);
+    } else {
+      this.nextButton.removeAttribute('disabled');
+    }
+
+    this.pageCount.textContent = this.currentPage;
+    this.pageTotal.textContent = this.totalPages;
+  }
+
+  onButtonClick(event) {
+    event.preventDefault();
+    const slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + this.sliderLastItem.clientWidth : this.slider.scrollLeft - this.sliderLastItem.clientWidth;
+    this.slider.scrollTo({
+      left: slideScrollPosition
+    });
+  }
+}
+
+customElements.define('slider-component', SliderComponent);
+
+class VariantSelects extends HTMLElement {
+  constructor() {
+    super();
+    this.addEventListener('change', this.onVariantChange);
+  }
+
+  onVariantChange() {
+    this.updateOptions();
+    this.updateMasterId();
+    this.toggleAddButton(true, '', false);
+    this.updatePickupAvailability();
+
+    if (!this.currentVariant) {
+      this.toggleAddButton(true, '', true);
+      this.setUnavailable();
+    } else {
+      this.updateMedia();
+      this.updateURL();
+      this.updateVariantInput();
+      this.renderProductInfo();
+    }
+  }
+
+  updateOptions() {
+    this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
+  }
+
+  updateMasterId() {
+    this.currentVariant = this.getVariantData().find((variant) => {
+      return !variant.options.map((option, index) => {
+        return this.options[index] === option;
+      }).includes(false);
+    });
+  }
+
+  updateMedia() {
+    if (!this.currentVariant || !this.currentVariant?.featured_media) return;
+    const newMedia = document.querySelector(
+      `[data-media-id="${this.dataset.section}-${this.currentVariant.featured_media.id}"]`
+    );
+
+    if (!newMedia) return;
+    const modalContent = document.querySelector(`#ProductModal-${this.dataset.section} .product-media-modal__content`);
+    const newMediaModal = modalContent.querySelector( `[data-media-id="${this.currentVariant.featured_media.id}"]`);
+    const parent = newMedia.parentElement;
+    if (parent.firstChild == newMedia) return;
+    modalContent.prepend(newMediaModal);
+    parent.prepend(newMedia);
+    this.stickyHeader = this.stickyHeader || document.querySelector('sticky-header');
+    this.stickyHeader.dispatchEvent(new Event('preventHeaderReveal'));
+    window.setTimeout(() => { parent.querySelector('li.product__media-item').scrollIntoView({behavior: "smooth"}); });
+  }
+
+  updateURL() {
+    if (!this.currentVariant || this.dataset.updateUrl === 'false') return;
+    window.history.replaceState({ }, '', `${this.dataset.url}?variant=${this.currentVariant.id}`);
+  }
+
+  updateVariantInput() {
+    const productForms = document.querySelectorAll(`#product-form-${this.dataset.section}, #product-form-installment`);
+    productForms.forEach((productForm) => {
+      const input = productForm.querySelector('input[name="id"]');
+      input.value = this.currentVariant.id;
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+  }
+
+  updatePickupAvailability() {
+    const pickUpAvailability = document.querySelector('pickup-availability');
+    if (!pickUpAvailability) return;
+
+    if (this.currentVariant?.available) {
+      pickUpAvailability.fetchAvailability(this.currentVariant.id);
+    } else {
+      pickUpAvailability.removeAttribute('available');
+      pickUpAvailability.innerHTML = '';
+    }
+  }
+
+  renderProductInfo() {
+    fetch(`${this.dataset.url}?variant=${this.currentVariant.id}&section_id=${this.dataset.section}`)
+      .then((response) => response.text())
+      .then((responseText) => {
+        const id = `price-${this.dataset.section}`;
+        const html = new DOMParser().parseFromString(responseText, 'text/html')
+        const destination = document.getElementById(id);
+        const source = html.getElementById(id);
+
+        if (source && destination) destination.innerHTML = source.innerHTML;
+
+        document.getElementById(`price-${this.dataset.section}`)?.classList.remove('visibility-hidden');
+        this.toggleAddButton(!this.currentVariant.available, window.variantStrings.soldOut);
+      });
+  }
+
+  toggleAddButton(disable = true, text, modifyClass = true) {
+    const addButton = document.getElementById(`product-form-${this.dataset.section}`)?.querySelector('[name="add"]');
+
+    if (!addButton) return;
+
+    if (disable) {
+      addButton.setAttribute('disabled', true);
+      if (text) addButton.textContent = text;
+    } else {
+      addButton.removeAttribute('disabled');
+      addButton.textContent = window.variantStrings.addToCart;
+    }
+
+    if (!modifyClass) return;
+  }
+
+  setUnavailable() {
+    const addButton = document.getElementById(`product-form-${this.dataset.section}`)?.querySelector('[name="add"]');
+    if (!addButton) return;
+    addButton.textContent = window.variantStrings.unavailable;
+    document.getElementById(`price-${this.dataset.section}`)?.classList.add('visibility-hidden');
+  }
+
+  getVariantData() {
+    this.variantData = this.variantData || JSON.parse(this.querySelector('[type="application/json"]').textContent);
+    return this.variantData;
+  }
+}
+
+customElements.define('variant-selects', VariantSelects);
+
+class VariantRadios extends VariantSelects {
+  constructor() {
+    super();
+  }
+
+  updateOptions() {
+    const fieldsets = Array.from(this.querySelectorAll('fieldset'));
+    this.options = fieldsets.map((fieldset) => {
+      return Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value;
+    });
+  }
+}
+
+customElements.define('variant-radios', VariantRadios);

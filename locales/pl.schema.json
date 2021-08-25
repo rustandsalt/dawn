@@ -68,7 +68,7 @@
           "options__3": {
             "label": "Akcent 2"
           },
-          "label": "System kolorów znaczków Wyprzedaż"
+          "label": "Kolorystyka znaczków Wyprzedaż"
         },
         "sold_out_badge_color_scheme": {
           "options__1": {
@@ -77,7 +77,28 @@
           "options__2": {
             "label": "Odwrócone"
           },
-          "label": "System kolorów znaczków Wyprzedane"
+          "label": "Kolorystyka znaczków Wyprzedane"
+        },
+        "header__1": {
+          "content": "Znaczki"
+        },
+        "header__2": {
+          "content": "Elementy dekoracyjne"
+        },
+        "accent_icons": {
+          "options__1": {
+            "label": "Akcent 1"
+          },
+          "options__2": {
+            "label": "Akcent 2"
+          },
+          "options__3": {
+            "label": "Przycisk konspektu"
+          },
+          "options__4": {
+            "label": "Tekst"
+          },
+          "label": "Ikony akcentu"
         }
       }
     },
@@ -134,6 +155,42 @@
         "social_vimeo_link": {
           "label": "Vimeo",
           "info": "https://vimeo.com/shopify"
+        },
+        "header": {
+          "content": "Konta społecznościowe"
+        }
+      }
+    },
+    "currency_format": {
+      "name": "Format waluty",
+      "settings": {
+        "content": "Kody walut",
+        "currency_code_enabled": {
+          "label": "Pokaż kody walut"
+        },
+        "paragraph": "Ceny w koszyku i kasie zawsze zawierają kody walut. Przykład: 1,00 USD."
+      }
+    },
+    "favicon": {
+      "name": "Ikona Favicon",
+      "settings": {
+        "favicon": {
+          "label": "Obraz ikony Favicon",
+          "info": "Zostanie zmniejszony do rozmiaru 32 x 32 piksele."
+        }
+      }
+    },
+    "layout": {
+      "name": "Układ",
+      "settings": {
+        "page_width": {
+          "label": "Maksymalna szerokość",
+          "options__1": {
+            "label": "1200 px"
+          },
+          "options__2": {
+            "label": "1600 px"
+          }
         }
       }
     }
@@ -207,7 +264,7 @@
             },
             "image_padding": {
               "label": "Dodaj wypełnienie obrazu",
-              "info": "Wybierz wypełnienie obrazu, jeśli nie chcesz, aby obrazy były przycinane."
+              "info": "Wybierz dopełnienie obrazu, jeśli nie chcesz, aby obraz został przycięty."
             },
             "color_scheme": {
               "options__1": {
@@ -226,7 +283,7 @@
                 "label": "Odwrócone"
               },
               "label": "Kolorystyka",
-              "info": "Wybierz wypełnienie obrazu, aby uwidocznić kolor."
+              "info": "Wybierz dopełnienie obrazu, aby uwidocznić kolor."
             }
           }
         },
@@ -243,8 +300,8 @@
               "label": "Pokaż drugi obraz po najechaniu kursorem"
             },
             "image_padding": {
-              "label": "Dodaj wypełnienie obrazu",
-              "info": "Wybierz wypełnienie obrazu, jeśli nie chcesz, aby obrazy były przycinane."
+              "label": "Dodaj dopełnienie obrazu",
+              "info": "Wybierz dopełnienie obrazu, jeśli nie chcesz, aby obrazy były przycinane."
             }
           }
         },
@@ -256,7 +313,7 @@
             },
             "image_padding": {
               "label": "Dodaj wypełnienie obrazu",
-              "info": "Wybierz wypełnienie obrazu, jeśli nie chcesz, aby obrazy były przycinane."
+              "info": "Wybierz dopełnienie obrazu, jeśli nie chcesz, aby obraz został przycięty."
             },
             "color_scheme": {
               "options__1": {
@@ -285,13 +342,17 @@
               "label": "Obraz w tle"
             },
             "video_url": {
-              "label": "Link",
-              "info": "Filmy są odtwarzane w wyskakującym okienku, jeśli sekcja zawiera inne bloki.",
-              "placeholder": "Użyj linku do YouTube lub Vimeo"
+              "label": "URL",
+              "info": "Film jest odtwarzany w wyskakującym okienku, jeśli sekcja zawiera inne bloki.",
+              "placeholder": "Użyj adresu URL do YouTube lub Vimeo"
             },
             "image_padding": {
               "label": "Dodaj wypełnienie obrazu",
-              "info": "Wybierz wypełnienie obrazu, jeśli nie chcesz, aby obrazy były przycinane."
+              "info": "Wybierz dopełnienie obrazu, jeśli nie chcesz, aby obraz z tle został przycięty."
+            },
+            "description": {
+              "label": "Alternatywny tekst filmu",
+              "info": "Opisz film tak, aby był dostępny dla klientów korzystających z czytników ekranu."
             }
           }
         }
@@ -308,7 +369,7 @@
         },
         "image_ratio": {
           "label": "Proporcja obrazu",
-          "info": "Aby dodać obrazy, [edytuj swoje kolekcje](https://help.shopify.com/en/manual/products/collections)",
+          "info": "Dodaj obrazy, edytując swoje kolekcje. [Dowiedz się więcej ](https://help.shopify.com/en/manual/products/collections)",
           "options__1": {
             "label": "Dostosuj do obrazu"
           },
@@ -341,7 +402,7 @@
           "label": "Włącz przeciąganie na urządzeniu mobilnym"
         },
         "image_padding": {
-          "label": "Dodaj wypełnienie obrazu"
+          "label": "Dodaj dopełnienie obrazu"
         },
         "show_view_all": {
           "label": "Włącz przycisk „Wyświetl wszystko”, jeśli lista zawiera więcej kolekcji niż pokazano"
@@ -371,7 +432,8 @@
       "name": "Niestandardowy Liquid",
       "settings": {
         "custom_liquid": {
-          "label": "Niestandardowy Liquid"
+          "label": "Niestandardowy Liquid",
+          "info": "Dodawaj fragmenty kodu aplikacji lub kod Liquid, aby tworzyć zaawansowane dostosowania."
         }
       },
       "presets": {
@@ -395,10 +457,16 @@
         },
         "show_image": {
           "label": "Pokaż wyróżniony obraz",
-          "info": "Aby uzyskać najlepsze wyniki, użyj obrazu o współczynniku proporcji 2:3."
+          "info": "Aby uzyskać najlepsze wyniki, użyj obrazu o współczynniku proporcji 2:3. [Dowiedz się więcej ](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
         },
         "soft_background": {
           "label": "Pokaż dodatkowe tło"
+        },
+        "show_date": {
+          "label": "Pokaż datę"
+        },
+        "show_author": {
+          "label": "Pokaż autora"
         }
       },
       "blocks": {
@@ -461,10 +529,13 @@
           "label": "Pokaż drugi obraz po najechaniu kursorem"
         },
         "add_image_padding": {
-          "label": "Dodaj wypełnienie"
+          "label": "Dodaj dopełnienie obrazu"
         },
         "show_vendor": {
           "label": "Pokaż dostawcę"
+        },
+        "show_image_outline": {
+          "label": "Pokaż obramowanie obrazu"
         }
       },
       "presets": {
@@ -526,7 +597,7 @@
         },
         "header__1": {
           "content": "Osoba zarejestrowana w celu otrzymywania e-maili",
-          "info": "Subskrybenci dodani do [listy klientów] „wyrażających zgodę na marketing”.(https://help.shopify.com/en/manual/customers/manage-customers)"
+          "info": "Subskrybenci zostali automatycznie dodani do listy klientów „wyrażających zgodę na marketing\". [Dowiedz się więcej ](https://help.shopify.com/en/manual/customers/manage-customers)"
         },
         "header__2": {
           "content": "Ikony mediów społecznościowych",
@@ -572,7 +643,7 @@
           "label": "Niestandardowa szerokość logo"
         },
         "logo_position": {
-          "label": "Pozycja logo na dużym ekranie",
+          "label": "Pozycja logo na dużych ekranach",
           "options__1": {
             "label": "Do środka, do lewej"
           },
@@ -777,7 +848,7 @@
           "settings": {
             "image_height": {
               "label": "Wysokość wyróżnionego obrazu",
-              "info": "Aby uzyskać najlepsze wyniki, użyj obrazu o współczynniku proporcji 16:9.",
+              "info": "Aby uzyskać najlepsze wyniki, użyj obrazu o współczynniku proporcji 16:9. [Dowiedz się więcej ](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)",
               "options__1": {
                 "label": "Dostosuj do obrazu"
               },
@@ -806,6 +877,20 @@
         },
         "social_sharing": {
           "name": "Przyciski udostępniania w mediach społecznościowych"
+        },
+        "share": {
+          "name": "Udostępnij",
+          "settings": {
+            "featured_image_info": {
+              "content": "Jeśli dodasz link w postach mediów społecznościowych, wyróżniony obraz strony będzie wyświetlany jako obraz podglądu. [Dowiedz się więcej](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+            },
+            "title_info": {
+              "content": "Tytuł i opis strony są dodawane wraz z obrazem podglądu. [Dowiedz się więcej](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
+            },
+            "text": {
+              "label": "Tekst"
+            }
+          }
         }
       }
     },
@@ -817,10 +902,16 @@
         },
         "show_image": {
           "label": "Pokaż wyróżniony obraz",
-          "info": "Aby uzyskać najlepsze wyniki, użyj obrazu o współczynniku proporcji 2:3."
+          "info": "Aby uzyskać najlepsze wyniki, użyj obrazu o współczynniku proporcji 2:3. [Dowiedz się więcej ](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
         },
         "paragraph": {
-          "content": "Aby zmienić fragmenty, edytuj swoje [posty na blogu.](https://help.shopify.com/en/manual/online-store/blogs/writing-blogs#display-an-excerpt-from-a-blog-post)"
+          "content": "Zmień fragmenty, edytując swoje posty na blogu. [Dowiedz się więcej ](https://help.shopify.com/en/manual/online-store/blogs/writing-blogs#display-an-excerpt-from-a-blog-post)"
+        },
+        "show_date": {
+          "label": "Pokaż datę"
+        },
+        "show_author": {
+          "label": "Pokaż autora"
         }
       },
       "blocks": {
@@ -871,14 +962,14 @@
       "name": "Baner kolekcji",
       "settings": {
         "paragraph": {
-          "content": "Aby zmienić opisy kolekcji lub obrazy kolekcji, [edytuj swoje kolekcje.](/admin/collections)"
+          "content": "Dodaj opis lub obraz, edytując swoją kolekcję. [Dowiedz się więcej ](https://help.shopify.com/en/manual/products/collections/collection-layout)"
         },
         "show_collection_description": {
           "label": "Pokaż opis kolekcji"
         },
         "show_collection_image": {
           "label": "Pokaż obraz kolekcji",
-          "info": "Aby uzyskać najlepsze wyniki, użyj obrazu o współczynniku proporcji 16:9."
+          "info": "Aby uzyskać najlepsze wyniki, użyj obrazu o współczynniku proporcji 16:9. [Dowiedz się więcej ](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
         }
       }
     },
@@ -904,7 +995,7 @@
           "label": "Pokaż drugi obraz po najechaniu kursorem"
         },
         "add_image_padding": {
-          "label": "Dodaj wypełnienie obrazu"
+          "label": "Dodaj dopełnienie obrazu"
         },
         "show_vendor": {
           "label": "Pokaż dostawcę"
@@ -913,12 +1004,9 @@
           "label": "Włącz filtrowanie",
           "info": "[Dostosuj filtry](/admin/menus)"
         },
-        "enable_sort": {
-          "label": "Włącz sortowanie"
-        },
         "enable_filtering": {
           "label": "Włącz filtrowanie",
-          "info": "[Dostosuj filtry](/admin/menus)"
+          "info": "Dostosuj [filtry](/admin/menus)"
         },
         "enable_sorting": {
           "label": "Włącz sortowanie"
@@ -928,6 +1016,15 @@
         },
         "header__3": {
           "content": "Karta produktów"
+        },
+        "show_image_outline": {
+          "label": "Pokaż obramowanie obrazu"
+        },
+        "enable_sort": {
+          "label": "Włącz sortowanie"
+        },
+        "collapse_on_larger_devices": {
+          "label": "Zwiń na większych ekranach"
         }
       }
     },
@@ -960,7 +1057,7 @@
         },
         "image_ratio": {
           "label": "Proporcja obrazu",
-          "info": "Aby dodać obrazy, [edytuj swoje kolekcje](https://help.shopify.com/en/manual/products/collections)",
+          "info": "Dodaj obrazy, edytując swoje kolekcje. [Dowiedz się więcej ](https://help.shopify.com/en/manual/products/collections)",
           "options__1": {
             "label": "Dostosuj do obrazu"
           },
@@ -990,7 +1087,7 @@
           "label": "Kolorystyka"
         },
         "image_padding": {
-          "label": "Dodaj wypełnienie obrazu"
+          "label": "Dodaj dopełnienie obrazu"
         }
       }
     },
@@ -1051,7 +1148,7 @@
       }
     },
     "main-product": {
-      "name": "Produkt",
+      "name": "Informacje o produkcie",
       "blocks": {
         "text": {
           "name": "Tekst",
@@ -1117,6 +1214,15 @@
             "header": {
               "content": "Udostępnij",
               "info": "Po opublikowaniu linku ze sklepu online do mediów społecznościowych wyświetlany jest wyróżniony obraz dla takiej strony. [Dowiedz się więcej](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images). Ustaw tytuł i opis swojego sklepu online. [Dowiedz się więcej](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)"
+            },
+            "featured_image_info": {
+              "content": "Jeśli dodasz link w postach mediów społecznościowych, wyróżniony obraz strony będzie wyświetlany jako obraz podglądu. [Dowiedz się więcej](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+            },
+            "title_info": {
+              "content": "Tytuł i opis strony są dodawane wraz z obrazem podglądu. [Dowiedz się więcej](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
+            },
+            "text": {
+              "label": "Tekst"
             }
           }
         },
@@ -1134,7 +1240,7 @@
               "label": "Zawartość karty ze strony"
             },
             "icon": {
-              "label": "Ikona karty",
+              "label": "Ikona",
               "options__1": {
                 "label": "Brak"
               },
@@ -1220,15 +1326,30 @@
               "label": "Strona"
             }
           }
+        },
+        "custom_liquid": {
+          "name": "Niestandardowy Liquid",
+          "settings": {
+            "custom_liquid": {
+              "label": "Niestandardowy Liquid",
+              "info": "Dodawaj fragmenty kodu aplikacji lub kod Liquid, aby tworzyć zaawansowane dostosowania."
+            }
+          }
         }
       },
       "settings": {
         "header": {
           "content": "Multimedia",
-          "info": "Dowiedz się więcej o [typach multimediów](https://help.shopify.com/manual/products/product-media)"
+          "info": "Dowiedz się więcej o [typach multimediów.](https://help.shopify.com/manual/products/product-media)"
         },
         "enable_video_looping": {
           "label": "Włącz zapętlanie wideo"
+        },
+        "enable_sticky_info": {
+          "label": "Włącz przypiętą informację o produkcie na dużych ekranach"
+        },
+        "hide_variants": {
+          "label": "Ukryj multimedia innych wariantów po wybraniu wariantu"
         }
       }
     },
@@ -1250,8 +1371,8 @@
         "show_secondary_image": {
           "label": "Pokaż drugi obraz po najechaniu kursorem"
         },
-        "enable_image_padding": {
-          "label": "Dodaj wypełnienie obrazu"
+        "add_image_padding": {
+          "label": "Dodaj dopełnienie obrazu"
         },
         "show_vendor": {
           "label": "Pokaż dostawcę"
@@ -1267,6 +1388,9 @@
         },
         "article_show_author": {
           "label": "Pokaż autora"
+        },
+        "show_image_outline": {
+          "label": "Pokaż obramowanie obrazu"
         }
       }
     },
@@ -1379,7 +1503,7 @@
           "label": "Zrób sekcję na całą szerokość"
         },
         "paragraph": {
-          "content": "Gdy klienci subskrybują e-maile, tworzone są konta klientów. [Dowiedz się więcej](https://help.shopify.com/en/manual/customers)"
+          "content": "Dla każdej subskrypcji e-maili tworzone jest konto klienta. [Dowiedz się więcej ](https://help.shopify.com/en/manual/customers)"
         }
       },
       "blocks": {
@@ -1450,10 +1574,16 @@
           "label": "Pokaż drugi obraz po najechaniu kursorem"
         },
         "add_image_padding": {
-          "label": "Dodaj wypełnienie"
+          "label": "Dodaj dopełnienie obrazu"
         },
         "show_vendor": {
           "label": "Pokaż dostawcę"
+        },
+        "paragraph__1": {
+          "content": "Dynamiczne rekomendacje wykorzystują informacje o zamówieniach i produktach do ciągłego zmieniania i ulepszania. [Dowiedz się więcej](https://help.shopify.com/en/themes/development/recommended-products)"
+        },
+        "show_image_outline": {
+          "label": "Pokaż obramowanie obrazu"
         }
       }
     },
@@ -1496,7 +1626,10 @@
               "options__2": {
                 "label": "Średni"
               },
-              "label": "Rozmiar czcionki nagłówka"
+              "label": "Rozmiar czcionki nagłówka",
+              "options__3": {
+                "label": "Duży"
+              }
             }
           }
         },
@@ -1525,6 +1658,147 @@
       },
       "presets": {
         "name": "Tekst sformatowany"
+      }
+    },
+    "apps": {
+      "name": "Aplikacje",
+      "settings": {
+        "include_margins": {
+          "label": "Dostosuj marginesy sekcji do szablonu"
+        }
+      },
+      "presets": {
+        "name": "Aplikacje"
+      }
+    },
+    "video": {
+      "name": "Film",
+      "settings": {
+        "heading": {
+          "label": "Nagłówek"
+        },
+        "cover_image": {
+          "label": "Obraz w tle"
+        },
+        "video_url": {
+          "label": "URL",
+          "placeholder": "Użyj adresu URL do YouTube lub Vimeo",
+          "info": "Film jest odtwarzany na stronie."
+        },
+        "description": {
+          "label": "Alternatywny tekst filmu",
+          "info": "Opisz film tak, aby był dostępny dla klientów korzystających z czytników ekranu."
+        },
+        "image_padding": {
+          "label": "Dodaj dopełnienie obrazu",
+          "info": "Wybierz dopełnienie obrazu, jeśli nie chcesz, aby obraz z tle był przycięty."
+        },
+        "full_width": {
+          "label": "Zrób sekcję na całą szerokość"
+        }
+      },
+      "presets": {
+        "name": "Film"
+      }
+    },
+    "featured-product": {
+      "name": "Polecany produkt",
+      "blocks": {
+        "text": {
+          "name": "Tekst",
+          "settings": {
+            "text": {
+              "label": "Tekst"
+            },
+            "text_style": {
+              "label": "Styl tekstu",
+              "options__1": {
+                "label": "Tekst podstawowy"
+              },
+              "options__2": {
+                "label": "Podtytuł"
+              },
+              "options__3": {
+                "label": "Duże litery"
+              }
+            }
+          }
+        },
+        "title": {
+          "name": "Tytuł"
+        },
+        "price": {
+          "name": "Cena"
+        },
+        "quantity_selector": {
+          "name": "Selektor ilości"
+        },
+        "variant_picker": {
+          "name": "Selektor wariantów",
+          "settings": {
+            "picker_type": {
+              "label": "Typ",
+              "options__1": {
+                "label": "Lista rozwijana"
+              },
+              "options__2": {
+                "label": "Przycisk"
+              }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Przyciski zakupu",
+          "settings": {
+            "show_dynamic_checkout": {
+              "label": "Pokaż dynamiczne przyciski realizacji zakupu",
+              "info": "Korzystając z metod płatności dostępnych w Twoim sklepie, klienci widzą swoją preferowaną opcję, np. PayPal lub Apple Pay. [Dowiedz się więcej](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            }
+          }
+        },
+        "description": {
+          "name": "Opis"
+        },
+        "share": {
+          "name": "Udostępnij",
+          "settings": {
+            "featured_image_info": {
+              "content": "Jeśli dodasz link w postach mediów społecznościowych, wyróżniony obraz strony będzie wyświetlany jako obraz podglądu. [Dowiedz się więcej](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)"
+            },
+            "title_info": {
+              "content": "Tytuł i opis strony są dodawane wraz z obrazem podglądu. [Dowiedz się więcej](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)"
+            },
+            "text": {
+              "label": "Tekst"
+            }
+          }
+        },
+        "custom_liquid": {
+          "name": "Niestandardowy Liquid",
+          "settings": {
+            "custom_liquid": {
+              "label": "Niestandardowy Liquid"
+            }
+          }
+        }
+      },
+      "settings": {
+        "product": {
+          "label": "Produkt"
+        },
+        "secondary_background": {
+          "label": "Pokaż dodatkowe tło"
+        },
+        "header": {
+          "content": "Multimedia",
+          "info": "Dowiedz się więcej o [typach multimediów](https://help.shopify.com/manual/products/product-media)"
+        },
+        "enable_video_looping": {
+          "label": "Włącz zapętlanie wideo"
+        }
+      },
+      "presets": {
+        "name": "Polecany produkt"
       }
     }
   }
